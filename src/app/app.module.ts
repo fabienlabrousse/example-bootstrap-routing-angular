@@ -11,6 +11,9 @@ import { HomeComponent } from './home/home.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { ThumbnailComponent } from './home/thumbnail/thumbnail.component';
 import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,13 +24,17 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     FourOhFourComponent,
     ThumbnailComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    RegisterComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgbModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        NgbModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
