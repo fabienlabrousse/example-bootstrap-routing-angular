@@ -1,1 +1,14 @@
-<p>login works!</p>
+<div [formGroup]="loginForm" class="container">
+    <h1 class="mb-3">Register</h1>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="firstname">First name</label>
+            <input formControlName='firstname' type="text" class="form-control" id="firstname" placeholder="" value="" required="">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="password">Password</label>
+            <input formControlName="password" type="text" class="form-control" id="password" placeholder="" value="" required="">
+        </div>
+    </div>
+    <button [disabled]="loginForm.invalid" class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+</div>
