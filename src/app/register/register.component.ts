@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../user.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-register',
@@ -11,7 +12,8 @@ export class RegisterComponent implements OnInit {
 
     registerForm: FormGroup;
 
-    constructor(private userService: UserService) {
+    constructor(private userService: UserService,
+                private router: Router) {
         this.registerForm = new FormGroup({
             firstname: new FormControl('', [Validators.required]),
             lastname: new FormControl('', [Validators.required]),
@@ -27,8 +29,9 @@ export class RegisterComponent implements OnInit {
 
     registerUser(): void {
         this.userService.register(this.registerForm.value).subscribe(
-            (returnedValue) => {
-                return;
+            (returnedId) => {
+                // aller vers edit/id
+                this.router.navigate(['user/edit/' + returnedId]);
             },
             (error) => {
                 return;
